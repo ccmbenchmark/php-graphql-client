@@ -35,6 +35,8 @@ class StringLiteralFormatter
             }
         } elseif ($value === null) {
             $value = 'null';
+        } elseif (is_array($value)) {
+            $value = self::formatArrayForGQLQuery($value);
         } else {
             $value = (string) $value;
         }
